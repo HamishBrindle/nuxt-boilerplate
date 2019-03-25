@@ -35,14 +35,23 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
+
   /*
    ** Axios module configuration
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  styleResources: {
+    scss: [
+      'assets/styles/abstracts/_functions.scss',
+      'assets/styles/abstracts/_mixins.scss',
+      'assets/styles/abstracts/_variables.scss',
+    ],
   },
 
   /*
@@ -51,6 +60,18 @@ module.exports = {
   build: {
     transpile: [/^element-ui/],
     analyze: true,
+    babel: {
+      presets: ['@nuxt/babel-preset-app'],
+      plugins: [
+        [
+          'component',
+          {
+            libraryName: 'element-ui',
+            styleLibraryName: 'theme-chalk',
+          },
+        ],
+      ],
+    },
 
     /*
      ** You can extend webpack config here
