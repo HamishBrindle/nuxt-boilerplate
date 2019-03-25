@@ -1,8 +1,8 @@
 {
-  "name": "b2b-nuxt",
+  "name": "nuxt-boilerplate",
   "version": "1.0.0",
-  "description": "Madison B2B",
-  "author": "Omnium Business Solutions",
+  "description": "Get things going",
+  "author": "Hamish Brindle",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",

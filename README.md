@@ -1,6 +1,6 @@
-# madison-b2b
+# nuxt-boilerplate
 
-> Madison B2B
+> Getting things up and running. Definitely needs more.
 
 ## Build Setup
 
