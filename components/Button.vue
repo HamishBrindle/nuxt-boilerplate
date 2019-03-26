@@ -7,7 +7,7 @@
 <style lang="scss">
   .el-button {
     &--default {
-      background: $testColor;
+      background: red;
     }
   }
 </style>
