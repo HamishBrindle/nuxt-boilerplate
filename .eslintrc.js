@@ -20,7 +20,7 @@ module.exports = {
     'nuxt/no-cjs-in-config': 'off',
     'comma-dangle': 'error',
     'no-plusplus': 'off',
-    'no-param-reassign': ["error", { "props": false }],
+    'no-param-reassign': ['error', { 'props': false }],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   },
   settings: {
