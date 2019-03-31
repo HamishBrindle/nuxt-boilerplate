@@ -23,6 +23,7 @@ module.exports = {
     'no-param-reassign': ['error', { 'props': false }],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/singleline-html-element-content-newline': 'off',
+    'vue/max-attributes-per-line': 'off'
   },
   settings: {
     'import/resolver': {
