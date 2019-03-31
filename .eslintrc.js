@@ -21,7 +21,8 @@ module.exports = {
     'comma-dangle': 'error',
     'no-plusplus': 'off',
     'no-param-reassign': ['error', { 'props': false }],
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/singleline-html-element-content-newline': 'off',
   },
   settings: {
     'import/resolver': {
