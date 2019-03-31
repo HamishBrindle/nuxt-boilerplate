@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
-    "build:report": "nuxt build --analyze",
+    "build": "yarn element:generate && nuxt build",
+    "build:report": "yarn element:generate && nuxt build --analyze",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -15,7 +15,9 @@
     "test": "jest",
     "test:debug": "jest --debug",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "element:variables": "node_modules/.bin/et -i assets/styles/vendor/_element-ui.scss",
+    "element:generate": "node_modules/.bin/et -c assets/styles/vendor/_element-ui.scss -o assets/styles/themes/element-ui"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -46,6 +48,8 @@
     "babel-plugin-component": "^1.1.1",
     "babel-preset-vue": "^2.0.2",
     "css-loader": "^2.1.1",
+    "element-theme": "^2.0.1",
+    "element-theme-chalk": "^2.7.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",

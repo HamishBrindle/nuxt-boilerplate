@@ -1,3 +1,4 @@
+const path = require('path');
 const pkg = require('./package');
 
 module.exports = {
@@ -20,11 +21,6 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: { color: '#ff0000' },
-
-  /*
-   ** Global CSS
-   */
-  css: ['element-ui/lib/theme-chalk/index.css'],
 
   /*
    ** Plugins to load before mounting the App
@@ -63,11 +59,10 @@ module.exports = {
     babel: {
       presets: ['@nuxt/babel-preset-app'],
       plugins: [
-        [
-          'component',
+        ['component',
           {
             libraryName: 'element-ui',
-            styleLibraryName: 'theme-chalk',
+            styleLibraryName: '~assets/styles/themes/element-ui',
           },
         ],
       ],

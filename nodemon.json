@@ -1,0 +1,6 @@
+{
+  "events": {
+      "restart": "yarn element:generate",
+      "start": "yarn element:generate"
+    }
+ }
