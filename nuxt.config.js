@@ -24,7 +24,9 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/element-ui',
+  ],
 
   /*
    ** Nuxt.js modules
@@ -32,6 +34,7 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/sentry',
   ],
 
   /*
@@ -41,6 +44,9 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  /*
+   ** Style resources available app-wide
+   */
   styleResources: {
     scss: [
       'assets/styles/abstracts/_functions.scss',
@@ -50,11 +56,22 @@ module.exports = {
   },
 
   /*
+   ** Sentry.io configuration
+   */
+  sentry: {
+    dsn: 'http://a7a98415996148828fef68422fd82294@localhost:9000/1',
+    disabled: false,
+    config: {
+      attachProps: true,
+    },
+  },
+
+  /*
    ** Build configuration
    */
   build: {
     transpile: [/^element-ui/],
-    analyze: true,
+    analyze: false,
     babel: {
       presets: ['@nuxt/babel-preset-app'],
       plugins: [
@@ -74,9 +91,9 @@ module.exports = {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
-          enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
+          enforce: 'pre',
           exclude: /(node_modules)/,
         });
       }

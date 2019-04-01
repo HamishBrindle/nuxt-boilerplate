@@ -11,7 +11,7 @@
           <el-button type="warning">Warning</el-button>
           <el-button type="danger">Danger</el-button>
         </el-row>
-
+        <hr>
         <el-row>
           <el-button plain>Plain</el-button>
           <el-button type="primary" plain>Primary</el-button>
@@ -20,7 +20,7 @@
           <el-button type="warning" plain>Warning</el-button>
           <el-button type="danger" plain>Danger</el-button>
         </el-row>
-
+        <hr>
         <el-row>
           <el-button round>Round</el-button>
           <el-button type="primary" round>Primary</el-button>
@@ -29,7 +29,7 @@
           <el-button type="warning" round>Warning</el-button>
           <el-button type="danger" round>Danger</el-button>
         </el-row>
-
+        <hr>
         <el-row>
           <el-button icon="el-icon-search" circle />
           <el-button type="primary" icon="el-icon-edit" circle />
@@ -38,6 +38,7 @@
           <el-button type="warning" icon="el-icon-star-off" circle />
           <el-button type="danger" icon="el-icon-delete" circle />
         </el-row>
+        <hr>
         <el-row>
           <el-col>
             <p class="future-1">This is a test</p>
@@ -49,10 +50,33 @@
             <p class="future-7">This is a test</p>
           </el-col>
         </el-row>
+        <hr>
+        <el-row>
+          <el-button :error="error" type="primary" round @click="sendError(error)">
+            Trigger Error
+          </el-button>
+        </el-row>
       </el-main>
     </el-container>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      error: { name: 'TestError', description: 'An error that Sentry will catch!' },
+    };
+  },
+  methods: {
+    // Testing connection to Sentry.io
+    sendError(error) {
+      this.$sentry.captureException(new Error(error.description));
+    },
+  },
+};
+</script>
+
 
 <style lang="scss" scoped>
 .future-1 {
